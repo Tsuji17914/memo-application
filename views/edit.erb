@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang='ja'>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>メモを編集</title>
+  <style>
+  body {
+      font-family: Arial;
+    }
+
+    p {
+      margin-bottom: 5px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 20px;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+    .button-group {
+      display: flex;
+      gap: 10px
+    }
+
+    button, a {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #e0a800;
+      color: white;
+      border-radius: 5px;
+      font-size: 14px;
+      text-decoration: none;
+      border: none;
+    }
+
+    button {
+      font-size: 15px;
+      padding: 11px 23px;
+    }
+  </style>
+</head>
+<body>
+<form action="/memos/<%= @memo['id'] %>" method="post">
+  <p>タイトル:</p>
+  <input type="text" name="title" id="title" value="<%= @memo['title'] %>" maxlength="50" autocomplete="off">
+  <p>内容:</p>
+  <textarea name="content" id="content" maxlength="500"><%= @memo['content'] %></textarea>    <button type="submit">更新</button>
+  <a href="/memos">戻る</a>
+</form>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang='ja'>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>メモプレビュー</title>
+  <style>
+    body {
+      font-family: Arial;
+    }
+
+    h1 {
+      font-size: 24px;
+    }
+
+    p {
+      font-size: 18px;
+    }
+
+    a, button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #e0a800;
+      color: white;
+      border-radius: 5px;
+      font-size: 14px;
+      text-decoration: none;
+      border: none;
+    }
+
+    button {
+      font-size: 15px;
+      padding: 11px 23px;
+    }
+  </style>
+</head>
+<body>
+  <h1><%= @memo['title'] %></h1>
+  <p><%= @memo['content'] %></p>
+  <a href="/memos">戻る</a>
+  <a href="/memos/<%= @memo['id'] %>/edit">編集</a>
+  <form action="/memos/<%= @memo['id'] %>/delete" method="post" style="display:inline;">
+    <button type="submit">削除</button>
+  </form>
+</body>
+</html>
