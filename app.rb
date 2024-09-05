@@ -2,6 +2,14 @@
 
 require 'sinatra'
 require 'json'
+require 'cgi'
+
+helpers do
+  # HTMLエスケープを行うヘルパーメソッド
+  def h(text)
+    CGI.escapeHTML(text.to_s)
+  end
+end
 
 DATA_FILE = 'memos.json'
 
@@ -30,8 +38,8 @@ post '/memos' do
   memos = load_memos
   new_memo = {
     'id' => (memos.empty? ? 1 : memos.last['id'] + 1),
-    'title' => params[:title],
-    'content' => params[:content]
+    'title' => params[:title].strip,
+    'content' => params[:content].strip
   }
   memos << new_memo
   save_memos(memos)
@@ -52,8 +60,8 @@ end
 patch '/memos/:id' do
   memos = load_memos
   find_memo = memos.find { |memo| memo['id'] == params[:id].to_i }
-  find_memo['title'] = params[:title]
-  find_memo['content'] = params[:content]
+  find_memo['title'] = params[:title].strip
+  find_memo['content'] = params[:content].strip
   save_memos(memos)
   redirect "/memos/#{params[:id]}"
 end
