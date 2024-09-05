@@ -1,0 +1,42 @@
+body {
+  font-family: Arial;
+}
+
+p {
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+textarea {
+  width: 100%;
+  padding: 20px;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+  
+.button-group {
+  display: flex;
+  gap: 10px
+}
+
+button, a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #e0a800;
+  color: white;
+  border-radius: 5px;
+  font-size: 14px;
+  text-decoration: none;
+  border: none;
+}
+
+button {
+  font-size: 15px;
+  padding: 11px 23px;
+}
