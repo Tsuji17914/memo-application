@@ -6,8 +6,11 @@ require 'json'
 DATA_FILE = 'memos.json'
 
 def load_memos
-  File.exist?(DATA_FILE)
-  JSON.parse(File.read(DATA_FILE))
+  if File.exist?(DATA_FILE)
+    JSON.parse(File.read(DATA_FILE))
+  else
+    []
+  end
 end
 
 def save_memos(memos)
@@ -55,7 +58,7 @@ patch '/memos/:id' do
   redirect "/memos/#{params[:id]}"
 end
 
-delete '/memos/:id/delete' do
+delete '/memos/:id' do
   memos = load_memos
   memos.reject! { |memo| memo['id'] == params[:id].to_i }
   save_memos(memos)

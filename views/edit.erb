@@ -1,19 +1,11 @@
-<!DOCTYPE html>
-<html lang='ja'>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>メモを編集</title>
-  <link rel="stylesheet" href="/css/styles.css" >
-</head>
-<body>
-  <form action="/memos/<%= @memo['id'] %>" method="post">
-    <p>タイトル:</p>
-    <input type="text" name="title" value="<%= @memo['title'] %>" maxlength="50">
-    <p>内容:</p>
-    <textarea name="content" maxlength="500"><%= @memo['content'] %></textarea>    
-    <button type="submit">更新</button>
-    <a href="/memos">戻る</a>
-  </form>
-</body>
-</html>
+<% @title = "メモ編集" %>
+
+<h1>メモ編集</h1>
+<form action="/memos/<%= @memo['id'] %>" method="post">
+  <p>タイトル:</p>
+  <input type="text" name="title" value="<%= @memo['title'] %>" maxlength="50">
+  <p>内容:</p>
+  <textarea name="content" maxlength="500"><%= @memo['content'] %></textarea>
+  <button type="submit">更新</button>
+  <a href="/memos">戻る</a>
+</form>
