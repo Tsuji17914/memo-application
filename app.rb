@@ -4,14 +4,13 @@ require 'sinatra'
 require 'json'
 require 'cgi'
 
+DATA_FILE = 'memos.json'
+
 helpers do
-  # HTMLエスケープを行うヘルパーメソッド
   def h(text)
     CGI.escapeHTML(text.to_s)
   end
 end
-
-DATA_FILE = 'memos.json'
 
 def load_memos
   if File.exist?(DATA_FILE)
@@ -27,10 +26,12 @@ end
 
 get '/memos' do
   @memos = load_memos
+  @title = 'メモ一覧'
   erb :index
 end
 
 get '/memos/new' do
+  @title = 'メモ作成'
   erb :new
 end
 
@@ -48,12 +49,14 @@ end
 
 get '/memos/:id' do
   @memo = load_memos.find { |memo| memo['id'] == params[:id].to_i }
+  @title = 'メモ詳細'
   erb :show
 end
 
 get '/memos/:id/edit' do
   @memo = load_memos.find { |memo| memo['id'] == params[:id].to_i }
   halt(404, 'メモが見つかりません') unless @memo
+  @title = 'メモ編集'
   erb :edit
 end
 

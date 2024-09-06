@@ -60,3 +60,7 @@ button {
   background-color: transparent;
   font-size: 20px; 
 }
+
+.button-group {
+  display: inline;
+}
