@@ -1,0 +1,9 @@
+<h1><%= h(@title) %></h1>
+<a href="/memos/new" class="new-memo-button">新規作成</a>
+<ul class="memo-list">
+  <% @memos.each do |memo| %>
+    <li>
+      <a href="/memos/<%= h(memo['id']) %>"><%= h(memo['title']) %></a>
+    </li>
+  <% end %>
+</ul>

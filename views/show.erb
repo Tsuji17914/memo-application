@@ -1,0 +1,10 @@
+<h1><%= h(@memo['title']) %></h1>
+<p><%= h(@memo['content']) %></p>
+<div class="button-group">
+  <a href="/memos">戻る</a>
+  <a href="/memos/<%= h(@memo['id']) %>/edit">編集</a>
+  <form action="/memos/<%= h(@memo['id']) %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <button type="submit">削除</button>
+  </form>
+</div>
