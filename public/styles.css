@@ -62,5 +62,5 @@ button {
 }
 
 .button-group {
-  display: inline;
+  display: flex;
 }

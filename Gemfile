@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 
 gem 'sinatra'
-gem 'json'  
+gem "pg"
 gem 'puma' 
 gem 'rubocop'
 gem 'erb_lint'

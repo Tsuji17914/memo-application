@@ -18,15 +18,28 @@ cd memo-app
 bundle install
 ```
 
-### 3.アプリケーションを起動する
+### 3.PostgreSQLデータベースをセットアップする
+```zsh
+# PostgreSQL に接続
+psql -U postgres
+
+# データベースの作成
+psql -c "CREATE DATABASE memo_app_db;"
+
+# テーブルの作成
+psql -d memo_app_db -f db/schema.sql
+```
+
+### 4.アプリケーションを起動する
 ```zsh
 ruby app.rb
 ```
 
-### 4.アプリケーションにアクセスする
+### 5.アプリケーションにアクセスする
 ```zsh
 # ブラウザを開き、以下URLにアクセスする
 http://localhost:4567/memos
 ```
-### 4.アプリケーションを終了する
+
+### 6.アプリケーションを終了する
 ターミナルで`CTRL + C'を教えて終了
